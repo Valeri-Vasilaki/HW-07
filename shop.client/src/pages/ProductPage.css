@@ -1,0 +1,19 @@
+
+.product-images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    padding: 10px 15px;
+}
+
+
+
+.product-image .image-wrapper {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+.product-image .image-wrapper img {
+    max-width: 100%;
+}

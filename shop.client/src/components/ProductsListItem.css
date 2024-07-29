@@ -1,0 +1,29 @@
+
+.product-item {
+    display: flex;
+    /* background-color: aqua; */
+}
+
+.product-item .image {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border: 1px solid #d0d0d0;
+}
+
+.product-item .image img {
+    max-width: 100%;
+}
+
+.product-item .title {
+    display: block;
+    color: inherit;
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.product-item .label {
+    font-weight: 600;
+}
