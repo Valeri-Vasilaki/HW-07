@@ -8,13 +8,10 @@ interface ISimilarProductsProps {
 }
 
 const SimilarProducts = ({similarTo}: ISimilarProductsProps) => {
-
     const [similarProducts, setSimilarProducts] = useState<IProduct[] | null>();
-
     useEffect(() => {
         getSimilarProducts(similarTo).then(r => setSimilarProducts(r));
     }, [])
-
     return (
         <>
             <h1>Похожие товары</h1>
@@ -27,5 +24,4 @@ const SimilarProducts = ({similarTo}: ISimilarProductsProps) => {
         </>
     );
 }
-
 export default SimilarProducts;

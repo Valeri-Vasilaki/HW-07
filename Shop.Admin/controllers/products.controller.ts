@@ -14,7 +14,6 @@ import {IProductEditData} from "../types";
 import {throwServerError} from "./helper";
 
 export const productsRouter = Router();
-
 productsRouter.get('/', async (req: Request, res: Response) => {
     try {
         const products = await getProducts();
@@ -26,7 +25,6 @@ productsRouter.get('/', async (req: Request, res: Response) => {
         throwServerError(res, e);
     }
 });
-
 productsRouter.get('/search', async (
     req: Request<{}, {}, {}, IProductFilterPayload>,
     res: Response
@@ -41,7 +39,6 @@ productsRouter.get('/search', async (
         throwServerError(res, e);
     }
 });
-
 productsRouter.get('/new-product', async (
     req: Request,
     res: Response
@@ -63,7 +60,6 @@ productsRouter.get('/new-product', async (
         throwServerError(res, e);
     }
 });
-
 productsRouter.get('/:id', async (
     req: Request<{ id: string }>,
     res: Response
@@ -89,7 +85,6 @@ productsRouter.get('/:id', async (
         throwServerError(res, e);
     }
 });
-
 productsRouter.get('/remove-product/:id', async (
     req: Request<{ id: string }>,
     res: Response
@@ -100,14 +95,12 @@ productsRouter.get('/remove-product/:id', async (
             res.send("Forbidden");
             return;
         }
-
         await removeProduct(req.params.id);
         res.redirect(`/${process.env.ADMIN_PATH}`);
     } catch (e) {
         throwServerError(res, e);
     }
 });
-
 productsRouter.post('/save/:id', async (
     req: Request<{ id: string }, {}, IProductEditData>,
     res: Response
@@ -119,7 +112,6 @@ productsRouter.post('/save/:id', async (
         throwServerError(res, e);
     }
 });
-
 productsRouter.post('/save', async (
     req: Request<{}, {}, IProductEditData>,
     res: Response

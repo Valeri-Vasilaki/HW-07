@@ -12,7 +12,6 @@ export async function verifyRequisites(
             requisites
         );
         console.log("requisites checked with status: " + status);
-
         return status === 200;
     } catch (e) {
         return false;

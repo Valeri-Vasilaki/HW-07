@@ -1,14 +1,10 @@
-import { IProduct } from "@Shared/types";
-import { createContext } from "react";
+import {IProduct} from "@Shared/types";
+import {createContext} from "react";
 
 export type ProductsContextType = {
-    products:IProduct[];
-   }
-   
-   
-   const defaultValue: ProductsContextType = {
+    products: IProduct[];
+}
+const defaultValue: ProductsContextType = {
     products: []
-   }
-   
-   
-   export const ProductsContext = createContext<ProductsContextType>(defaultValue);
+}
+export const ProductsContext = createContext<ProductsContextType>(defaultValue);

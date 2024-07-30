@@ -1,12 +1,9 @@
-import { useContext } from "react";
-import { ProductsContext } from "../Context";
+import {useContext} from "react";
+import {ProductsContext} from "../Context";
 import ProductsListItem from "../components/ProductsListItem";
-import { ppid } from "process";
 
 export default function ProductsList() {
-
     const productsContext = useContext(ProductsContext);
-
     return (
         <>
             <h1>Список товаров ({productsContext.products?.length})</h1>
@@ -14,7 +11,7 @@ export default function ProductsList() {
                 productsContext.products?.map((product) => {
                     return (
                         <li key={product.id}>
-                            <ProductsListItem product={product} />
+                            <ProductsListItem product={product}/>
                         </li>)
                 })
             }

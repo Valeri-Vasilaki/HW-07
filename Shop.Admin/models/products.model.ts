@@ -77,40 +77,32 @@ export async function updateProduct(
             });
             await Promise.all(getDeleteCommentActions());
         }
-
         if (formData.imagesToRemove) {
             const imagesIdsToRemove = compileIdsToRemove(formData.imagesToRemove);
             await axios.post(`${API_HOST}/products/remove-images`, imagesIdsToRemove);
         }
-
         if (formData.newImages) {
             const urls = splitNewImages(formData.newImages);
             const images = urls.map(url => ({url, main: false}));
-
             if (!currentProduct.thumbnail) {
                 images[0].main = true;
             }
-
             await axios.post(`${API_HOST}/products/add-images`, {productId, images});
         }
-
         if (formData.mainImage && formData.mainImage !== currentProduct.thumbnail?.id) {
             await axios.post(`${API_HOST}/products/update-thumbnail/${productId}`, {
                 newThumbnailId: formData.mainImage
             });
         }
-
         if (formData.similarToRemove) {
             const ids = compileIdsToRemove(formData.similarToRemove);
             await axios.post(`${API_HOST}/products/remove-similar`, ids);
         }
-
         if (formData.similarToAdd) {
             const ids = compileIdsToRemove(formData.similarToAdd);
             const pairs = ids.map(id => [productId, id]);
             await axios.post(`${API_HOST}/products/add-similar`, pairs);
         }
-
         await axios.patch(`${API_HOST}/products/${productId}`, {
             title: formData.title,
             description: formData.description,
