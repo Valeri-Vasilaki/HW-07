@@ -7,7 +7,7 @@ interface IProductProps {
     product: IProduct
 }
 
-const ProductsListItem: FunctionComponent<IProductProps> = ({product}): JSX.Element => {
+const ProductsListItem: FunctionComponent<IProductProps> = ({product}) => {
     const imgUrl = product.thumbnail?.url ?? "../product-placeholder.png";
     return (
         <div className="product-item">

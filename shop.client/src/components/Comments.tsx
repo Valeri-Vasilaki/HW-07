@@ -1,7 +1,7 @@
 import {IComment} from "@Shared/types";
 import {JSX} from "react"
 
-export default function Comments({comments}: { comments: IComment[] | undefined }): JSX.Element {
+export default function Comments({comments}: { comments: IComment[] }): JSX.Element {
     return (
         <>
             <h1>comments</h1>

@@ -1,13 +1,22 @@
 import {Link} from "react-router-dom";
 import {ProductsContext} from "../Context";
 import {useContext} from "react";
+import HOST from './urls';
 
 export default function Main() {
     const productsContext = useContext(ProductsContext);
     const calcTotalPrice = () => {
-        return productsContext.products?.map(product => product.price).reduce((a, e) => a + e, 0);
-    }
-    const HOST = `http://${process.env.REACT_APP_LOCAL_PATH}:${process.env.REACT_APP_LOCAL_PORT}`;
+        const { products } = productsContext;
+
+        if (!products) {
+            return 0;
+        }
+
+        return products
+            .map((product) => product.price)
+            .reduce((accumulator, price) => accumulator + price, 0);
+    };
+
     return (
         <div className="App">
             <h1>Shop.Client</h1>

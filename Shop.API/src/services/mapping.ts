@@ -5,9 +5,7 @@ import {
 } from "../../types";
 import {IComment, IProduct, IProductImage} from "@Shared/types";
 
-export const mapCommentEntity = ({
-                                     comment_id, product_id, ...rest
-                                 }: ICommentEntity): IComment => {
+export const mapCommentEntity = ({comment_id, product_id, ...rest}: ICommentEntity): IComment => {
     return {
         id: comment_id,
         productId: product_id,
